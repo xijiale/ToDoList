@@ -4,7 +4,7 @@
 }
 .content {
     width:686px;
-    border: 1px solid #3C3F41;
+    border: 1px solid #cdcdcd;
     margin: 300px auto;
 }
 .header {
@@ -28,16 +28,17 @@ h2 {
     border-radius: 5px;
 }
 .desk {
-    width: 100%;
+    width: 686px;
     background-color: #CDCDCD;
 }
 .run {
     width: 100%;
-    margin: 0 30px 50px;
+    margin: 0 30px 10px;
 }
 .finish {
     width: 100%;
-    margin: 0 30px 50px;
+    padding: 0 50px 20px 30px;
+
 }
 .a {
     height: 70px;
@@ -59,7 +60,7 @@ h2 {
     border-radius: 50px;
     background-color: #E6E6FA;
 }
-.arr {
+.arr{
     width: 570px;
     height: 32px;
     border:1px solid  #CDCDCD;
@@ -72,4 +73,15 @@ h2 {
 .inputtype {
     margin: 9px 12px;
 
+}
+.array {
+    width: 570px;
+    height: 32px;
+    border:1px solid  #CDCDCD;
+    border-radius: 5px;
+    border-left: 5px solid #B3B3B3;
+    background-color: #E6E6E6;
+    margin-left: 35px;
+    margin-top: 15px;
+    color: #676767;
 }
