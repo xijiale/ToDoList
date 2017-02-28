@@ -18,6 +18,7 @@ h2 {
     color: #DDDDDD;
     margin-left: 35px;
     line-height: 50px;
+
 }
 .enter {
     width: 360px;
@@ -26,23 +27,28 @@ h2 {
     margin-right: 50px;
     margin-top: 11px;
     border-radius: 5px;
+
 }
 .desk {
     width: 686px;
     background-color: #CDCDCD;
+
 }
 .run {
-    width: 100%;
-    margin: 0 30px 10px;
+    width: 626px;
+    padding: 0 30px 10px;
+
 }
+
 .finish {
-    width: 100%;
-    padding: 0 50px 20px 30px;
+    width: 626px;
+    padding: 0 30px 20px 30px;
 
 }
 .a {
     height: 70px;
     width: 100%;
+
 
 }
 .caption {
@@ -50,15 +56,17 @@ h2 {
     width: 200px;
     line-height: 70px;
     float: left;
+
 }
 .count {
     float: right;
     width: 20px;
-    margin-right: 80px;
+    margin-right: 50px;
     margin-top: 35px;
     text-align: center;
     border-radius: 50px;
     background-color: #E6E6FA;
+
 }
 .arr{
     width: 570px;
@@ -69,9 +77,11 @@ h2 {
     background-color: #FFFFFF;
     margin-left: 35px;
     margin-top: 15px;
+
 }
 .inputtype {
     margin: 9px 12px;
+
 
 }
 .array {
@@ -90,5 +100,6 @@ h2 {
     margin-right: 30px;
     margin-top: 7px;
     color: #CDCDCD;
+
 
 }

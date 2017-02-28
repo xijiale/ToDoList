@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="jquery-3.1.1.min.js"></script>
-    <script src="list.js"></script>
+
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="todolist.css">
     <title>ToDoList</title>
@@ -13,7 +12,7 @@
 <div class="content">
     <div class="header">
         <h2>ToDoList</h2>
-        <input class="enter" type="text" placeholder="  添加ToDo" onchange="addn()" required/>
+        <input id='todoInput' class="enter" type="text" placeholder="  添加ToDo"  required/>
     </div>
     <div class="desk">
         <div class="run">
@@ -22,20 +21,20 @@
                     <h2 style="color: #000000">正在进行</h2>
                 </div>
                 <div class="count">
-                    <span class="qunty" id="q1">2</span>
+                    <span class="qunty" id="q1">0</span>
                 </div>
             </div>
             <div class="task" id="task">
-                <div class="arr">
-                    <input type="radio" class="inputtype"/>
-                    <span>完成DEMO</span>
-                    <i class="fa fa-minus-circle" aria-hidden="true"></i>
-                </div>
-                <div class="arr" id="arr1">
-                    <input type="radio" class="inputtype"/>
-                    <span>完成js学习</span>
-                    <i class="fa fa-minus-circle" aria-hidden="true"></i>
-                </div>
+                <!--<div class="arr">-->
+                    <!--<input type="radio" class="inputtype"/>-->
+                    <!--<span>完成DEMO学习</span>-->
+                    <!--<i class="fa fa-minus-circle" aria-hidden="true" id="fa"></i>-->
+                <!--</div>-->
+                <!--<div class="arr" id="arr1">-->
+                    <!--<input type="radio" class="inputtype"/>-->
+                    <!--<span>完成js学习</span>-->
+                    <!--<i class="fa fa-minus-circle" aria-hidden="true"></i>-->
+                <!--</div>-->
             </div>
         </div>
         <div class="finish">
@@ -44,25 +43,26 @@
                     <h2 style="color: #000000">已经完成</h2>
                 </div>
                 <div class="count">
-                    <span class="qunty">2</span>
+                    <span class="qunty">0</span>
                 </div>
             </div>
             <div class="taskl">
-                <div class="array">
-                    <input type="radio" class="inputtype" checked="checked"/>
-                    <span>完成CSS学习</span>
-                    <i class="fa fa-minus-circle" aria-hidden="true"></i>
-                </div>
-                <div class="array">
-                    <input type="radio" class="inputtype" checked="checked"/>
-                    <span>完成html学习</span>
-                    <i class="fa fa-minus-circle" aria-hidden="true"></i>
-                </div>
+                <!--<div class="array">-->
+                    <!--<input type="radio" class="inputtype" checked="checked"/>-->
+                    <!--<span>完成CSS学习</span>-->
+                    <!--<i class="fa fa-minus-circle" aria-hidden="true"></i>-->
+                <!--</div>-->
+                <!--<div class="array">-->
+                    <!--<input type="radio" class="inputtype" checked="checked"/>-->
+                    <!--<span>完成html学习</span>-->
+                    <!--<i class="fa fa-minus-circle" aria-hidden="true"></i>-->
+                <!--</div>-->
 
         </div>
     </div>
 </div>
 
 </body>
-
+<script src="jquery-3.1.1.min.js"></script>
+<script src="list.js"></script>
 </html>
