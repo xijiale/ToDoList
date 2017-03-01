@@ -24,27 +24,25 @@ $(document).ready(function () {
         $('#taskl').append(htmlTempl5);
         $('#q2').text(doneList.length);
     }
-
     $("#sub").on('click',function () {
         var text1  = $('.enter').val();
         if (!text1) {
             alert("不能为空！");
             return;
         }
-        var htmlTempl1 = "<div class='arr'><input type='checkbox' class='inputtype r' id='selector' value="+text1+"><span>"+text1+"</span> <i class='fa fa-minus-circle d' aria-hidden='true' id='delete' value="+text1+"></i></div>";
+        var htmlTempl1 = "<div class='arr'><input type='checkbox' class='inputtype r' id='selector' value="+text1+"><span>"+text1+"</span> <i class='fa fa-minus-circle d' aria-hidden='true' id='delete' data-value="+text1+"></i></div>";
         $('#task').append(htmlTempl1);
-//统计事件
+    //统计事件
         undoList.push(text1);
         $('#q1').text(undoList.length);
          if(window.localStorage) {
              window.localStorage.setItem('undoList', undoList);
          }
     });
-
     //删除事件
     $('.content').on('click','.d',function () {
         $(this).parent().remove();
-        var pushIndex = undoList[$(this).val()].index();
+        var pushIndex = undoList.indexOf(jQuery("#delete").data('value'));
         undoList.splice(pushIndex,1);
         $('#q1').text(undoList.length);
         window.localStorage.setItem('undoList',undoList);
@@ -53,12 +51,14 @@ $(document).ready(function () {
     $('.content').on('click','.r',function () {
         var text2 = $(this).val();
         console.log(text2);
-        var htmlTempl2 = "<div class='array'><input type='checkbox' class='inputtype f' checked='checked' value="+text2+"><span>"+text2+"</span><i class='fa fa-minus-circle t' aria-hidden='true' value="+text2+"></i></div>";
+        var htmlTempl2 = "<div class='array'><input type='checkbox' class='inputtype f' checked='checked' value="+text2+"><span>"+text2+"</span><i class='fa fa-minus-circle t' aria-hidden='true' data-value="+text2+"></i></div>";
         $('#taskl').append(htmlTempl2);
-        var pushIndex = doneList.push(text2);
+        doneList.push(text2);
         $('#q2').text(doneList.length);
+        var pushIndex = undoList.indexOf(text2);
+            undoList.splice(pushIndex,1);
         $(this).parent().remove();
-        undoList.splice(pushIndex - 1,1);
+        console.log(undoList);
         $('#q1').text(undoList.length);
         if(window.localStorage) {
             window.localStorage.setItem('doneList', doneList);
@@ -68,7 +68,7 @@ $(document).ready(function () {
     //删除事件
     $('.content').on('click','.t',function () {
         $(this).parent().remove();
-        var pushIndex = doneList[$(this).val()].index();
+        var pushIndex = doneList.indexOf($(this).value());
         doneList.splice(pushIndex,1);
         $('#q2').text(doneList.length);
         window.localStorage.setItem('doneList', doneList);
@@ -78,10 +78,10 @@ $(document).ready(function () {
         var text3 = $(this).val();
         var htmlTempl3 = "<div class='arr'><input type='checkbox' class='inputtype r' id='selector'><span>"+text3+"</span> <i class='fa fa-minus-circle d' aria-hidden='true' id='delete'></i></div>";
         $('#task').append(htmlTempl3);
-        var pushIndex = undoList.push(text3);
+        var pushIndex = doneList.indexOf(text3);
         $('#q1').text(undoList.length);
         $(this).parent().remove();
-        doneList.splice(pushIndex - 1,1);
+        doneList.splice(pushIndex,1);
         $('#q2').text(doneList.length);
         window.localStorage.setItem('undoList',undoList);
         window.localStorage.setItem('doneList', doneList);
