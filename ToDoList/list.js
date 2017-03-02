@@ -14,13 +14,14 @@ $(document).ready(function () {
     }
     for (var k = 0; k < undoList.length; k++) {
         var text4 = undoList[k];
-        var htmlTempl4 = "<div class='arr'><input type='checkbox' class='inputtype r' id='selector' value="+text4+"><span>"+text4+"</span> <i class='fa fa-minus-circle d' aria-hidden='true' id='delete'></i></div>";
+        var htmlTempl4 = "<div class='arr'><input type='checkbox' class='inputtype r' id='selector' value="+text4+"><span>"+text4+"</span> <i class='fa fa-minus-circle d' aria-hidden='true' id='delete' data-value="+text4+"></i></div>";
         $('#task').append(htmlTempl4);
         $('#q1').text(undoList.length);
     }
+
     for (var i = 0; i < doneList.length; i++) {
-        var text5 = doneList[k];
-        var htmlTempl5 = "<div class='array'><input type='checkbox' class='inputtype f' checked='checked' value="+text5+"><span>"+text5+"</span><i class='fa fa-minus-circle t' aria-hidden='true'></i></div>";
+        var text5 = doneList[i];
+        var htmlTempl5 = "<div class='array'><input type='checkbox' class='inputtype f' checked='checked' value="+text5+"><span>"+text5+"</span><i class='fa fa-minus-circle t' aria-hidden='true' data-value="+text5+"></i></div>";
         $('#taskl').append(htmlTempl5);
         $('#q2').text(doneList.length);
     }
@@ -35,6 +36,7 @@ $(document).ready(function () {
     //统计事件
         undoList.push(text1);
         $('#q1').text(undoList.length);
+        //存储
          if(window.localStorage) {
              window.localStorage.setItem('undoList', undoList);
          }
@@ -42,7 +44,12 @@ $(document).ready(function () {
     //删除事件
     $('.content').on('click','.d',function () {
         $(this).parent().remove();
-        var pushIndex = undoList.indexOf(jQuery("#delete").data('value'));
+        var text6 = $(this).attr('data-value');
+        for (var i = 0; i < undoList.length; i++) {
+            if (undoList[i] == text6) {
+                var pushIndex = i;
+            }
+        }
         undoList.splice(pushIndex,1);
         $('#q1').text(undoList.length);
         window.localStorage.setItem('undoList',undoList);
@@ -55,20 +62,27 @@ $(document).ready(function () {
         $('#taskl').append(htmlTempl2);
         doneList.push(text2);
         $('#q2').text(doneList.length);
-        var pushIndex = undoList.indexOf(text2);
+        for (var i = 0; i < undoList.length; i++) {
+            if (undoList[i] == text2) {
+                var pushIndex = i;
+            }
+        }
             undoList.splice(pushIndex,1);
         $(this).parent().remove();
         console.log(undoList);
         $('#q1').text(undoList.length);
-        if(window.localStorage) {
-            window.localStorage.setItem('doneList', doneList);
-        }
+        window.localStorage.setItem('doneList', doneList);
         window.localStorage.setItem('undoList',undoList);
     });
     //删除事件
     $('.content').on('click','.t',function () {
         $(this).parent().remove();
-        var pushIndex = doneList.indexOf($(this).value());
+        var text7 = $(this).attr('data-value');
+        for (var i = 0; i < doneList.length; i++) {
+            if (doneList[i] == text7) {
+                var pushIndex = i;
+            }
+        }
         doneList.splice(pushIndex,1);
         $('#q2').text(doneList.length);
         window.localStorage.setItem('doneList', doneList);
@@ -76,9 +90,13 @@ $(document).ready(function () {
     //取消事件
     $('.content').on('change','.f',function () {
         var text3 = $(this).val();
-        var htmlTempl3 = "<div class='arr'><input type='checkbox' class='inputtype r' id='selector'><span>"+text3+"</span> <i class='fa fa-minus-circle d' aria-hidden='true' id='delete'></i></div>";
+        var htmlTempl3 = "<div class='arr'><input type='checkbox' class='inputtype r' id='selector'><span>"+text3+"</span> <i class='fa fa-minus-circle d' aria-hidden='true' id='delete' data-value="+text3+"></i></div>";
         $('#task').append(htmlTempl3);
-        var pushIndex = doneList.indexOf(text3);
+        for (var i = 0; i < doneList.length; i++) {
+            if (doneList[i] == text3) {
+                var pushIndex = i;
+            }
+        }
         $('#q1').text(undoList.length);
         $(this).parent().remove();
         doneList.splice(pushIndex,1);
