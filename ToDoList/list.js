@@ -57,7 +57,6 @@ $(document).ready(function () {
     //勾选事件
     $('.content').on('click','.r',function () {
         var text2 = $(this).val();
-        console.log(text2);
         var htmlTempl2 = "<div class='array'><input type='checkbox' class='inputtype f' checked='checked' value="+text2+"><span>"+text2+"</span><i class='fa fa-minus-circle t' aria-hidden='true' data-value="+text2+"></i></div>";
         $('#taskl').append(htmlTempl2);
         doneList.push(text2);
@@ -69,7 +68,6 @@ $(document).ready(function () {
         }
             undoList.splice(pushIndex,1);
         $(this).parent().remove();
-        console.log(undoList);
         $('#q1').text(undoList.length);
         window.localStorage.setItem('doneList', doneList);
         window.localStorage.setItem('undoList',undoList);
@@ -92,14 +90,15 @@ $(document).ready(function () {
         var text3 = $(this).val();
         var htmlTempl3 = "<div class='arr'><input type='checkbox' class='inputtype r' id='selector'><span>"+text3+"</span> <i class='fa fa-minus-circle d' aria-hidden='true' id='delete' data-value="+text3+"></i></div>";
         $('#task').append(htmlTempl3);
+        undoList.push(text3);
+        $('#q1').text(undoList.length);
         for (var i = 0; i < doneList.length; i++) {
             if (doneList[i] == text3) {
                 var pushIndex = i;
             }
         }
-        $('#q1').text(undoList.length);
-        $(this).parent().remove();
         doneList.splice(pushIndex,1);
+        $(this).parent().remove();
         $('#q2').text(doneList.length);
         window.localStorage.setItem('undoList',undoList);
         window.localStorage.setItem('doneList', doneList);
